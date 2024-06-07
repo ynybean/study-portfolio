@@ -42,7 +42,7 @@ class Experience(
 
     @OneToMany(
         targetEntity = ExperienceDetail::class,
-        fetch = FetchType.LAZY,
+        fetch = FetchType.LAZY, // jpa proxy가 최초에 Experience에는 빈 가짜 객체로 들고있다가, 이 details를 다시 조회함. -> n + 1 문제 발생
         cascade = [CascadeType.ALL]
     ) // 영속성 컨텍스트 관련
     @JoinColumn(name = "experience_id")
