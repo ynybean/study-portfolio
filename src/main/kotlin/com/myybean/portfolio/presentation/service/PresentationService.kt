@@ -6,9 +6,11 @@ import com.myybean.portfolio.presentation.dto.LinkDTO
 import com.myybean.portfolio.presentation.dto.ProjectDTO
 import com.myybean.portfolio.presentation.dto.ResumeDTO
 import com.myybean.portfolio.presentation.repository.PresentationRepository
+import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import kotlin.math.exp
 
+@Service
 class PresentationService(
     private val presentationRepository: PresentationRepository
 ) {

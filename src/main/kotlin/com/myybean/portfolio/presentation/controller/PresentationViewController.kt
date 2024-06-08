@@ -1,14 +1,50 @@
 package com.myybean.portfolio.presentation.controller
 
+import com.myybean.portfolio.domain.constant.SkillType
+import com.myybean.portfolio.presentation.service.PresentationService
 import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 
 @Controller // -> html파일을 리턴해준다
-class PresentationViewController {
+class PresentationViewController(
+    private val presentationService: PresentationService
+) {
 
     @GetMapping("/test")
     fun test(): String {
-        return "test" // view resolver가 이 이름의 html을 찾아서 retun함
+        return "test"
+    }
+
+    @GetMapping("/")
+    fun index(model: Model): String {
+
+        val introductions = presentationService.getIntroductions()
+        model.addAttribute("introductions", introductions)
+
+        val links = presentationService.getLinks()
+        model.addAttribute("links", links)
+
+        return "presentation/index"
+    }
+
+    @GetMapping("/resume")
+    fun resume(model: Model): String {
+
+        val resume = presentationService.getResume()
+        model.addAttribute("resume", resume)
+        model.addAttribute("skillTypes", SkillType.values())
+
+        return "presentation/resume"
+    }
+
+    @GetMapping("/projects")
+    fun projects(model: Model): String {
+
+        val projects = presentationService.getProjects()
+        model.addAttribute("projects", projects)
+
+        return "presentation/projects"
     }
 
 }
