@@ -8,6 +8,8 @@ class AdminInterceptorConfiguration(
 ) : WebMvcConfigurer {
 
     override fun addInterceptors(registry: InterceptorRegistry) {
-
+        registry.addInterceptor(adminInterceptor)
+            .addPathPatterns("/admin/**")
+            .excludePathPatterns("/assets/**", "/css/**", "/js/**", "h2**")
     }
 }
