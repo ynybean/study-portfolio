@@ -5,7 +5,9 @@ import com.myybean.portfolio.admin.exception.AdminBadRequestException
 import com.myybean.portfolio.domain.entity.ExperienceDetail
 import com.myybean.portfolio.domain.entity.Project
 import com.myybean.portfolio.domain.repository.ProjectRepository
+import org.springframework.stereotype.Service
 
+@Service
 class AdminProjectService(
     private val projectRepository: ProjectRepository
 ) {
