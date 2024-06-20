@@ -18,7 +18,7 @@ class ExperienceDetail(content: String, isActive: Boolean) : BaseEntity() {
 
     var isActive: Boolean = isActive
 
-    fun update(content: String, inActive: Boolean) {
+    fun update(content: String, isActive: Boolean) {
         this.content = content
         this.isActive = isActive
     }

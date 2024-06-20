@@ -12,7 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 
 @DataJpaTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class ExperienceRepositoryTest(
+class ExperienceFormRepositoryTest(
     @Autowired val experienceRepository: ExperienceRepository
 ) {
 
